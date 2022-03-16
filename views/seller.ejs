@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  html,
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: "Open Sans", sans-serif
+  }
+
+  .players,
+  .players1 {
+    width: 100%;
+    height: 30vw;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  #Right {
+    position: fixed;
+    right: 0%;
+  }
+
+  @media screen and (max-width:500px) {
+    #Right {
+      position: static;
+    }
+
+    .players {
+      width: 100%;
+      height: 50vw;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+  }
+</style>
+
+<body class="w3-theme-l5">
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div style="background-color: black;" class="w3-bar w3-theme-d2 w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2"
+        href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-theme-d4"><i
+          class="fa fa-home w3-margin-right"></i>Logo</a>
+      <a id="News" onclick="m12()" href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"
+        title="News"><img style="width: 30px; height: 30px;"
+          src="../public/b12edff1ee78b2e794feac4d4dcbfbd41be16d6b7f25dc5dc2e3935de4ced3a7_128x128.png" alt=""></a>
+      <a id="Account" onclick="m11()" href="#"
+        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><img
+          style="width: 30px; height: 30px;" src="../public/pngtree-vector-view-icon-png-image_4143925.jpg" alt=""></a>
+      <a id="Account" onclick="m13()" href="#"
+        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Account Settings"><img
+          style="width: 30px; height: 30px;" src="../public/downloadbell.png" alt=""></a>
+
+
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white"
+        title="My Account">
+        <img src="<%=userClient.Profilephoto%>" class="w3-circle" style="height:23px;width:23px" alt="Avatar">
+      </a>
+    </div>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+    <br>
+    <br>
+    <br>
+    <a href="#" onclick="m12()" class="w3-bar-item w3-button w3-padding-large">
+      <center><img style="width: 30px; height: 30px;"
+          src="../public/b12edff1ee78b2e794feac4d4dcbfbd41be16d6b7f25dc5dc2e3935de4ced3a7_128x128.png" alt=""></center>
+    </a>
+    <a href="#" onclick="m11()" class="w3-bar-item w3-button w3-padding-large">
+      <center><img style="width: 30px; height: 30px;" src="../public/pngtree-vector-view-icon-png-image_4143925.jpg"
+          alt=""></center>
+    </a>
+    <a href="#" onclick="m13()" class="w3-bar-item w3-button w3-padding-large">
+      <center><img style="width: 30px; height: 30px;" src="../public/downloadbell.png" alt=""></center>
+    </a>
+
+  </div>
+
+  <!-- Page Container -->
+  <div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">
+    <!-- The Grid -->
+    <div class="w3-row">
+      <!-- Left Column -->
+      <div class="w3-col m3">
+        <!-- Profile -->
+        <div class="w3-card w3-round w3-white">
+          <div class="w3-container">
+            <h4 class="w3-center">My Profile</h4>
+            <p class="w3-center"><img src="<%=userClient.Profilephoto%>" class="w3-circle"
+                style="height:106px;width:106px" alt="Avatar"></p>
+            <hr>
+            <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i>
+              <%=userClient.userName%>
+            </p>
+            <p><img style="width: 25px; height: 25px;" src="../public/download.png">
+              <%=userClient.points%>
+            </p>
+            <p><i class="fa fa-money fa-fw w3-margin-right w3-text-theme"></i>
+              <%=userClient.moneytobePaid%>
+            </p>
+          </div>
+        </div>
+        <br>
+
+        <!-- Accordion -->
+        <div class="w3-card w3-round">
+          <div class="w3-white">
+            <button onclick="myFunction('Demo1')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
+                class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups</button>
+            <div id="Demo1" class="w3-hide w3-container">
+              <p>Some text..</p>
+            </div>
+            <button onclick="myFunction('Demo2')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
+                class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events</button>
+            <div id="Demo2" class="w3-hide w3-container">
+              <p>Some other text..</p>
+            </div>
+            <button onclick="myFunction('Demo3')" class="w3-button w3-block w3-theme-l1 w3-left-align"><i
+                class="fa fa-users fa-fw w3-margin-right"></i> My Photos</button>
+            <div id="Demo3" class="w3-hide w3-container">
+              <div class="w3-row-padding">
+                <br>
+                <div class="w3-half">
+                  <img src="/w3images/lights.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+                <div class="w3-half">
+                  <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+                <div class="w3-half">
+                  <img src="/w3images/mountains.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+                <div class="w3-half">
+                  <img src="/w3images/forest.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+                <div class="w3-half">
+                  <img src="/w3images/nature.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+                <div class="w3-half">
+                  <img src="/w3images/snow.jpg" style="width:100%" class="w3-margin-bottom">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+
+        <!-- Interests -->
+        <div class="w3-card w3-round w3-white w3-hide-small">
+          <div class="w3-container">
+            <p>Interests</p>
+            <p>
+              <span class="w3-tag w3-small w3-theme-d5">News</span>
+              <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+              <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+              <span class="w3-tag w3-small w3-theme-d2">Games</span>
+              <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+              <span class="w3-tag w3-small w3-theme">Games</span>
+              <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+              <span class="w3-tag w3-small w3-theme-l2">Food</span>
+              <span class="w3-tag w3-small w3-theme-l3">Design</span>
+              <span class="w3-tag w3-small w3-theme-l4">Art</span>
+              <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+            </p>
+          </div>
+        </div>
+        <br>
+
+        <!-- Alert Box -->
+        <div
+          class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+          <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+            <i class="fa fa-remove"></i>
+          </span>
+          <p><strong>Hey!</strong></p>
+          <p>People are looking at your profile. Find out who.</p>
+        </div>
+
+        <!-- End Left Column -->
+      </div>
+
+      <!-- Middle Column -->
+      <div class="w3-col m7">
+
+
+        <div>
+          <%if (views.length>0 && watchtime.length>0 && subscribe.length>0){%>
+
+
+            <div>
+              <div style="display: none;" id="destroyer">
+                <div id="points1011">
+                  <center>
+                    <h6><b>watch this video and earn points</b></h6>
+                  </center>
+                  <div class="players" id="<%=views[0].id%>"></div>
+                  <form id="form10" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4 id="points1011">seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[0].id%>  </textarea>
+
+
+                        <h6 id="points1" name="points"></h6>
+
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points2022">
+                  <div class="players" id="<%=views[1].id%>"></div>
+                  <form id="form20" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[1].id%>  </textarea>
+
+                        <h6 id="points2"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points3033">
+                  <div class="players" id="<%=views[2].id%>"></div>
+                  <form id="form30" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[2].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[2].videoId%>
+                        </h4>
+                        <h6 id="points3" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points4044">
+                  <div class="players" id="<%=views[3].id%>"></div>
+                  <form id="form40" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[3].id%>  </textarea>
+
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[3].videoId%>
+                        </h4>
+                        <h6 id="points4" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point5055">
+                  <div class="players" id="<%=views[4].id%>"></div>
+                  <form id="form50" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[4].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[4].videoId%>
+                        </h4>
+                        <h6 id="points5" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point6066">
+                  <div class="players" id="<%=views[5].id%>"></div>
+                  <form id="form60" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[5].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[5].videoId%>
+                        </h4>
+                        <h6 id="points6" name="points"></h6>
+
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point7077">
+                  <div class="players" id="<%=views[6].id%>"></div>
+                  <form id="form70" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[6].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[6].videoId%>
+                        </h4>
+                        <h6 id="points7" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point8088">
+                  <div class="players" id="<%=views[7].id%>"></div>
+                  <form id="form80" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[7].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[7].videoId%>
+                        </h4>
+                        <h6 id="points8" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point9099">
+                  <div class="players" id="<%=views[8].id%>"></div>
+                  <form id="form90" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[8].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[8].videoId%>
+                        </h4>
+                        <h6 id="points9" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1001010">
+                  <div class="players" id="<%=views[9].id%>"></div>
+                  <form id="form100" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[9].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[9].videoId%>
+                        </h4>
+                        <h6 id="points10" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1101111">
+                  <div class="players" id="<%=views[10].id%>"></div>
+                  <form id="form110" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[10].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[10].videoId%>
+                        </h4>
+                        <h6 id="points11" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1201212">
+                  <div class="players" id="<%=views[11].id%>"></div>
+                  <form id="form120" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[11].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[11].videoId%>
+                        </h4>
+                        <h6 id="points12" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1301313">
+                  <div class="players" id="<%=views[12].id%>"></div>
+                  <form id="form130" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[12].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[12].videoId%>
+                        </h4>
+                        <h6 id="points13" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1401414">
+                  <div class="players" id="<%=views[13].id%>"></div>
+                  <form id="form140" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[13].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[13].videoId%>
+                        </h4>
+                        <h6 id="points14" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="point1501515">
+                  <div class="players" id="<%=views[14].id%>"></div>
+                  <form id="form150" method="post" action="/update/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=views[14].id%>  </textarea>
+                        <h4 style="display:none;" name="videoId">
+                          <%=views[14].videoId%>
+                        </h4>
+                        <h6 id="points15" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+
+
+
+              <div style="display: block;" id="destroyer1">
+                <div id="points1001">
+                  <center>
+                    <h6><b>watch this video and earn points</b></h6>
+                  </center>
+                  <div class="players" id="<%=watchtime[0].id%>"></div>
+                  <form id="form1" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[0].id%>  </textarea>
+
+                        <h6 id="point1" name="points"></h6>
+
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1002">
+                  <div class="players" id="<%=watchtime[1].id%>"></div>
+                  <form id="form2" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[1].id%>  </textarea>
+
+                        <h6 id="point2" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1003">
+                  <div class="players" id="<%=watchtime[2].id%>"></div>
+                  <form id="form3" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[2].id%>  </textarea>
+                        <h6 id="point3" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1004">
+                  <div class="players" id="<%=watchtime[3].id%>"></div>
+                  <form id="forme4" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[3].id%>  </textarea>
+                        <h6 id="point4" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1005">
+                  <div class="players" id="<%=watchtime[4].id%>"></div>
+                  <form id="form5" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[4].id%>  </textarea>
+                        <h6 id="point5" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1006">
+                  <div class="players" id="<%=watchtime[5].id%>"></div>
+                  <form id="form6" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[5].id%>  </textarea>
+                        <h6 id="point6" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1007">
+                  <div class="players" id="<%=watchtime[6].id%>"></div>
+                  <form id="form7" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[6].id%>  </textarea>
+                        <h6 id="point7" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1008">
+                  <div class="players" id="<%=watchtime[7].id%>"></div>
+                  <form id="form8" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[7].id%>  </textarea>
+                        <h6 id="point8" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points1009">
+                  <div class="players" id="<%=watchtime[8].id%>"></div>
+                  <form id="form9" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[8].id%>  </textarea>
+                        <h6 id="point9" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10010">
+                  <div class="players" id="<%=watchtime[9].id%>"></div>
+                  <form id="form10" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[9].id%>  </textarea>
+                        <h6 id="point10" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10011">
+                  <div class="players" id="<%=watchtime[10].id%>"></div>
+                  <form id="form11" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[10].id%>  </textarea>
+                        <h6 id="point11" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10012">
+                  <div class="players" id="<%=watchtime[11].id%>"></div>
+                  <form id="form12" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[11].id%>  </textarea>
+                        <h6 id="point12" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10013">
+                  <div class="players" id="<%=watchtime[12].id%>"></div>
+                  <form id="form13" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[12].id%>  </textarea>
+                        <h6 id="point13" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10014">
+                  <div class="players" id="<%=watchtime[13].id%>"></div>
+                  <form id="form14" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[13].id%>  </textarea>
+                        <h6 id="point14" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+                <div id="points10015">
+                  <div class="players" id="<%=watchtime[14].id%>"></div>
+                  <form id="form15" method="post" action="/updateWatchtime/<%=userClient.id%>">
+                    <center>
+                      <div
+                        style=" width: 30%; background-color : black; color: aliceblue; margin-left: 5px; text-align: center;">
+                        <h4>seconds</h4>
+                        <textarea style="display: none;" name="videoId"><%=watchtime[14].id%>  </textarea>
+                        <h6 id="point15" name="points"></h6>
+                      </div>
+                    </center>
+                  </form>
+                </div>
+              </div>
+              <div style="display:none ;" id="destroyer3">
+                <% subscribe.forEach( (subscribe)=>{%>
+                  <div class="w3-container w3-card w3-white w3-round w3-margin"><br>
+                    <h4><%=subscribe.ChannelName%></h4><br>
+                    <hr class="w3-clear">
+                    <p><%=subscribe.Discription%></p>
+                    <br>
+                    <a href="<%=subscribe.ChannelUrl%>?sub_confirmation=1"><button onclick="" class="w3-button w3-black"><b>subscribe</b></button></a>
+                    <br>
+                    <br>
+                  </div>
+    
+                  <%})%>
+              </div>
+
+              <script>
+                // 2. This code loads the IFrame Player API code asynchronously.
+                var tag = document.createElement('script');
+
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+                // 3. This function creates an <iframe> (and YouTube player)
+                //    after the API code downloads.
+
+
+                let player1;
+                let player2;
+                let player3;
+                let player4;
+                let player5;
+                let player6;
+                let player7;
+                let player8;
+                let player9;
+                let player10;
+                let player11;
+                let player12;
+                let player13;
+                let player14;
+                let player15;
+                let player16;
+                let player17;
+                let player18;
+                let player19;
+                let player20;
+                let player21;
+                let player22;
+                let player23;
+                let player24;
+                let player25;
+                let player26;
+                let player27;
+                let player28;
+                let player29;
+                let player30;
+                function onYouTubeIframeAPIReady() {
+                  player1 = new YT.Player('<%=views[0].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[0].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player2 = new YT.Player('<%=views[1].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[1].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player3 = new YT.Player('<%=views[2].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[2].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player4 = new YT.Player('<%=views[3].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[3].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player5 = new YT.Player('<%=views[4].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[4].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player6 = new YT.Player('<%=views[5].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[5].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player7 = new YT.Player('<%=views[6].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[6].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player8 = new YT.Player('<%=views[7].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[7].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player9 = new YT.Player('<%=views[8].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[8].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player10 = new YT.Player('<%=views[9].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[9].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player11 = new YT.Player('<%=views[10].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[10].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player12 = new YT.Player('<%=views[11].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[11].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player13 = new YT.Player('<%=views[12].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[12].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player14 = new YT.Player('<%=views[13].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[13].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player15 = new YT.Player('<%=views[14].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=views[14].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player16 = new YT.Player('<%=watchtime[0].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[0].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player17 = new YT.Player('<%=watchtime[1].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[1].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player18 = new YT.Player('<%=watchtime[2].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[2].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player19 = new YT.Player('<%=watchtime[3].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[3].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player20 = new YT.Player('<%=watchtime[4].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[4].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player21 = new YT.Player('<%=watchtime[5].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[5].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player22 = new YT.Player('<%=watchtime[6].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[6].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player23 = new YT.Player('<%=watchtime[7].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[7].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player24 = new YT.Player('<%=watchtime[8].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[8].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player25 = new YT.Player('<%=watchtime[9].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[9].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player26 = new YT.Player('<%=watchtime[10].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[10].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player27 = new YT.Player('<%=watchtime[11].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[11].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player28 = new YT.Player('<%=watchtime[12].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[12].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player29 = new YT.Player('<%=watchtime[13].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[13].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+                  player30 = new YT.Player('<%=watchtime[14].id%>', {
+                    height: '100%',
+                    width: '100%',
+                    videoId: '<%=watchtime[14].videoId%>',
+
+                    events: {
+                      'onReady': onPlayerReady,
+                      'onStateChange': onPlayerStateChange
+                    }
+                  });
+
+                }
+
+                // 4. The API will call this function when the video player is ready.
+                function onPlayerReady(event) {
+                  event.target.stopVideo();
+
+                }
+
+                // 5. The API calls this function when the player's state changes.
+                //    The function indicates that when playing a video (state=1),
+                //    the player should play for six seconds and then stop.
+                var done = false;
+                function onPlayerStateChange(event) {
+                  if (event.data == YT.PlayerState.PLAYING && !done) {
+                    setInterval(() => {
+                      let points1 = player1.getCurrentTime()
+                      let realPoints1 = Math.round(points1) - 60
+
+                      document.getElementById('points1').innerHTML = realPoints1;
+                      let newp;
+                      if (realPoints1 > 0) {
+
+
+                        player1.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[0].id%>').style.display = 'none';
+                        document.getElementById('points2022').style.display = 'none';
+
+                      }
+                      let points2 = player2.getCurrentTime()
+                      let realPoints2 = Math.round(points2) - 60
+                      document.getElementById('points2').innerHTML = realPoints2;
+                      if (realPoints2 > 0) {
+
+                        player2.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[1].id%>').style.display = 'none';
+                        document.getElementById('points2022').style.display = 'none';
+
+
+                      }
+
+
+                      let points3 = player3.getCurrentTime()
+                      let realPoints3 = Math.round(points3) - 60
+                      document.getElementById('points3').innerHTML = realPoints3;
+                      if (realPoints3 > 0) {
+
+                        player3.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[2].id%>').style.display = 'none';
+                        document.getElementById('points3033').style.display = 'none';
+
+
+                      }
+                      let points4 = player4.getCurrentTime()
+                      let realPoints4 = Math.round(points4) - 60
+                      document.getElementById('points4').innerHTML = realPoints4;
+                      if (realPoints4 > 0) {
+
+                        player4.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[3].id%>').style.display = 'none';
+                        document.getElementById('points4044').style.display = 'none';
+
+
+                      }
+                      let points5 = player5.getCurrentTime()
+                      let realPoints5 = Math.round(points5) - 60
+                      document.getElementById('points5').innerHTML = realPoints5;
+                      if (realPoints5 > 0) {
+
+                        player5.stopVideo();
+
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[4].id%>').style.display = 'none';
+                        document.getElementById('points5055').style.display = 'none';
+
+
+                      }
+                      let points6 = player6.getCurrentTime()
+                      let realPoints6 = Math.round(points6) - 60
+                      document.getElementById('points6').innerHTML = realPoints6;
+                      if (realPoints6 > 0) {
+
+                        player6.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[5].id%>').style.display = 'none';
+                        document.getElementById('points6066').style.display = 'none';
+
+
+                      }
+                      let points7 = player7.getCurrentTime()
+                      let realPoints7 = Math.round(points7) - 60
+                      document.getElementById('points7').innerHTML = realPoints7;
+                      if (realPoints7 > 0) {
+
+                        player7.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[6].id%>').style.display = 'none';
+                        document.getElementById('points7077').style.display = 'none';
+
+
+                      }
+                      let points8 = player8.getCurrentTime()
+                      let realPoints8 = Math.round(points8) - 60
+                      document.getElementById('points8').innerHTML = realPoints8;
+                      if (realPoints8 > 0) {
+
+                        player8.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[7].id%>').style.display = 'none';
+                        document.getElementById('points8088').style.display = 'none';
+
+
+                      }
+                      let points9 = player9.getCurrentTime()
+                      let realPoints9 = Math.round(points9) - 60
+                      document.getElementById('points9').innerHTML = realPoints9;
+                      if (realPoints9 > 0) {
+
+                        player9.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[8].id%>').style.display = 'none';
+                        document.getElementById('points9099').style.display = 'none';
+
+
+                      }
+                      let points10 = player10.getCurrentTime()
+                      let realPoints10 = Math.round(points10) - 60
+                      document.getElementById('points10').innerHTML = realPoints10;
+                      if (realPoints10 > 0) {
+
+                        player10.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[9].id%>').style.display = 'none';
+                        document.getElementById('points1001010').style.display = 'none';
+
+
+                      }
+                      let points11 = player11.getCurrentTime()
+                      let realPoints11 = Math.round(points11) - 60
+                      document.getElementById('points11').innerHTML = realPoints11;
+                      if (realPoints11 > 0) {
+
+                        player11.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[10].id%>').style.display = 'none';
+                        document.getElementById('points1101111').style.display = 'none';
+
+
+                      }
+                      let points12 = player12.getCurrentTime()
+                      let realPoints12 = Math.round(points12) - 60
+                      document.getElementById('points12').innerHTML = realPoints12;
+                      if (realPoints12 > 0) {
+
+                        player12.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[11].id%>').style.display = 'none';
+                        document.getElementById('points1201212').style.display = 'none';
+
+
+                      }
+                      let points13 = player13.getCurrentTime()
+                      let realPoints13 = Math.round(points13) - 60
+                      document.getElementById('points13').innerHTML = realPoints13;
+                      if (realPoints13 > 0) {
+
+                        player13.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[12].id%>').style.display = 'none';
+                        document.getElementById('points1301313').style.display = 'none';
+
+
+                      }
+                      let points14 = player14.getCurrentTime()
+                      let realPoints14 = Math.round(points14) - 60
+                      document.getElementById('points14').innerHTML = realPoints14;
+                      if (realPoints14 > 0) {
+
+                        player14.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[13].id%>').style.display = 'none';
+                        document.getElementById('points1401414').style.display = 'none';
+
+
+                      }
+                      let points15 = player15.getCurrentTime()
+                      let realPoints15 = Math.round(points15) - 60
+                      document.getElementById('points15').innerHTML = realPoints15;
+                      if (realPoints15 > 0) {
+
+                        player15.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=views[14].id%>').style.display = 'none';
+                        document.getElementById('points1501515').style.display = 'none';
+
+
+                      }
+                      let point1 = player16.getCurrentTime()
+                      let realPoint1 = Math.round(point1) - 60
+
+                      document.getElementById('point1').innerHTML = realPoint1;
+                      if (realPoint1 > 0) {
+
+                        player16.stopVideo();
+                        document.getElementById('form1').submit();
+                        document.getElementById('<%=views[0].id%>').style.display = 'none';
+                        document.getElementById('points1001').style.display = 'none'
+                        document.getElementById('points101').style.display = 'block'
+
+
+                      }
+                      let point2 = player17.getCurrentTime()
+                      let realPoint2 = Math.round(point2) - 60
+                      document.getElementById('point2').innerHTML = realPoint2;
+                      if (realPoint2 > 0) {
+
+                        player2.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[1].id%>').style.display = 'none';
+                        document.getElementById('points1002').style.display = 'none';
+
+
+                      }
+                      let point3 = player18.getCurrentTime()
+                      let realPoint3 = Math.round(point3) - 60
+                      document.getElementById('point3').innerHTML = realPoint3;
+                      if (realPoint3 > 0) {
+
+                        player3.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[2].id%>').style.display = 'none';
+                        document.getElementById('points1003').style.display = 'none';
+
+
+                      }
+                      let point4 = player19.getCurrentTime()
+                      let realPoint4 = Math.round(point4) - 60
+                      document.getElementById('point4').innerHTML = realPoint4;
+                      if (realPoint4 > 0) {
+
+                        player4.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[3].id%>').style.display = 'none';
+                        document.getElementById('points1004').style.display = 'none';
+
+
+                      }
+                      let point5 = player20.getCurrentTime()
+                      let realPoint5 = Math.round(point5) - 60
+                      document.getElementById('point5').innerHTML = realPoint5;
+                      if (realPoint5 > 0) {
+
+                        player5.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[4].id%>').style.display = 'none';
+                        document.getElementById('points1005').style.display = 'none';
+
+
+                      }
+                      let point6 = player21.getCurrentTime()
+                      let realPoint6 = Math.round(point6) - 60
+                      document.getElementById('point6').innerHTML = realPoint6;
+                      if (realPoints6 > 0) {
+
+                        player6.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[5].id%>').style.display = 'none';
+                        document.getElementById('points1006').style.display = 'none';
+
+
+                      }
+                      let point7 = player22.getCurrentTime()
+                      let realPoint7 = Math.round(point7) - 60
+                      document.getElementById('point7').innerHTML = realPoint7;
+                      if (realPoint7 > 0) {
+
+                        player7.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[6].id%>').style.display = 'none';
+                        document.getElementById('points1007').style.display = 'none';
+
+
+                      }
+                      let point8 = player23.getCurrentTime()
+                      let realPoint8 = Math.round(point8) - 60
+                      document.getElementById('point8').innerHTML = realPoint8;
+                      if (realPoint7 > 0) {
+
+                        player8.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[7].id%>').style.display = 'none';
+                        document.getElementById('points1008').style.display = 'none';
+
+
+                      }
+                      let point9 = player24.getCurrentTime()
+                      let realPoint9 = Math.round(point9) - 60
+                      document.getElementById('point9').innerHTML = realPoint9;
+                      if (realPoint9 > 0) {
+
+                        player9.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[8].id%>').style.display = 'none';
+                        document.getElementById('points1009').style.display = 'none';
+
+
+                      }
+                      let point10 = player25.getCurrentTime()
+                      let realPoint10 = Math.round(point10) - 60
+                      document.getElementById('point10').innerHTML = realPoint10;
+                      if (realPoints10 > 0) {
+
+                        player10.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[9].id%>').style.display = 'none';
+                        document.getElementById('points10010').style.display = 'none';
+
+
+                      }
+                      let point11 = player26.getCurrentTime()
+                      let realPoint11 = Math.round(point11) - 60
+                      document.getElementById('point11').innerHTML = realPoint11;
+                      if (realPoint11 > 0) {
+
+                        player11.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[10].id%>').style.display = 'none';
+                        document.getElementById('points10011').style.display = 'none';
+
+
+                      }
+                      let point12 = player27.getCurrentTime()
+                      let realPoint12 = Math.round(point12) - 60
+                      document.getElementById('point12').innerHTML = realPoint12;
+                      if (realPoint12 > 0) {
+
+                        player12.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[11].id%>').style.display = 'none';
+                        document.getElementById('points10012').style.display = 'none';
+
+
+                      }
+                      let point13 = player28.getCurrentTime()
+                      let realPoint13 = Math.round(point13) - 60
+                      document.getElementById('point13').innerHTML = realPoint13;
+                      if (realPoint13 > 0) {
+
+                        player13.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[12].id%>').style.display = 'none';
+                        document.getElementById('points10013').style.display = 'none';
+
+
+                      }
+                      let point14 = player29.getCurrentTime()
+                      let realPoint14 = Math.round(point14) - 60
+                      document.getElementById('point14').innerHTML = realPoint14;
+                      if (realPoint14 > 0) {
+
+                        player14.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[13].id%>').style.display = 'none';
+                        document.getElementById('points10014').style.display = 'none';
+
+
+                      }
+                      let point15 = player30.getCurrentTime()
+                      let realPoint15 = Math.round(point15) - 60
+                      document.getElementById('point15').innerHTML = realPoint15;
+                      if (realPoint15 > 0) {
+
+                        player15.stopVideo();
+                        document.getElementById('form').submit();
+                        document.getElementById('<%=watchtime[14].id%>').style.display = 'none';
+                        document.getElementById('points10015').style.display = 'none';
+                      }
+
+
+                    }, 200);
+                    done = true;
+                  }
+                }
+                function stopVideo() {
+                  player.stopVideo();
+                }
+
+                function m12() {
+
+                  document.getElementById('destroyer').style.display = 'block';
+                  document.getElementById('destroyer1').style.display = 'none';
+                  document.getElementById('destroyer3').style.display = 'none';
+                }
+
+                function m11() {
+                  document.getElementById('destroyer1').style.display = 'block';
+                  document.getElementById('destroyer').style.display = 'none';
+                  document.getElementById('destroyer3').style.display = 'none';
+
+
+                }
+                function m13() {
+                  document.getElementById('destroyer1').style.display = 'none';
+                  document.getElementById('destroyer').style.display = 'none';
+                  document.getElementById('destroyer3').style.display = 'block';
+
+
+                }
+
+              </script>
+
+
+              <% } %>
+
+            </div>
+
+        </div>
+      </div>
+
+
+      <!-- Right Column -->
+      <div style="display: block;" id="Right" class="w3-col m2">
+        <div class="w3-card w3-round w3-white w3-center">
+
+        </div>
+        <br>
+
+        <div class="w3-card w3-round w3-white w3-center">
+          <div class="w3-container">
+
+          </div>
+        </div>
+        <br>
+
+        <div style="height: 25vw;" class="w3-card w3-round w3-white w3-padding-16 w3-center">
+          <p>ADS</p>
+        </div>
+        <br>
+
+
+        <!-- End Right Column -->
+      </div>
+
+      <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+  </div>
+  <br>
+
+  <!-- Footer -->
+  <footer class="w3-container w3-theme-d3 w3-padding-16">
+    <h5>Footer</h5>
+  </footer>
+
+  <footer class="w3-container w3-theme-d5">
+
+  </footer>
+
+  <script>
+    // Accordion
+    let theSTORAGE1 = sessionStorage.getItem('name');
+    let NAME1 = 'MUNAZIRI'
+    if (theSTORAGE1 == NAME1) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE2 = sessionStorage.getItem('name');
+    let NAME2 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE3 = sessionStorage.getItem('name');
+    let NAME3 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE4 = sessionStorage.getItem('name');
+    let NAME4 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAG6 = sessionStorage.getItem('name');
+    let NAME6 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE7 = sessionStorage.getItem('name');
+    let NAME7 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE8 = sessionStorage.getItem('name');
+    let NAME8 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE9 = sessionStorage.getItem('name');
+    let NAME9 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+
+    let theSTORAGE10 = sessionStorage.getItem('name');
+    let NAME10 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE11 = sessionStorage.getItem('name');
+    let NAME11 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE12 = sessionStorage.getItem('name');
+    let NAME12 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE13 = sessionStorage.getItem('name');
+    let NAME13 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE14 = sessionStorage.getItem('name');
+    let NAME14 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+    let theSTORAGE15 = sessionStorage.getItem('name');
+    let NAME15 = 'MUNAZIRI'
+    if (theSTORAGE == NAME) {
+      document.getElementById('points1011').style.display = 'none'
+
+    }
+
+
+
+    function myFunction(id) {
+      var x = document.getElementById(id);
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-theme-d1";
+      } else {
+        x.className = x.className.replace("w3-show", "");
+        x.previousElementSibling.className =
+          x.previousElementSibling.className.replace(" w3-theme-d1", "");
+      }
+    }
+
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+      } else {
+        x.className = x.className.replace(" w3-show", "");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

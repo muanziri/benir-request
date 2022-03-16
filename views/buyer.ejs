@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html,
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Raleway", sans-serif
+    }
+
+    button {
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    /* Extra styles for the cancel button */
+    .cancelbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: green;
+    }
+
+    /* Center the image and position the close button */
+    .imgcontainer {
+      text-align: center;
+      margin: 24px 0 12px 0;
+      position: relative;
+    }
+
+    img.avatar {
+      width: 40%;
+      border-radius: 50%;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    span.psw {
+      float: right;
+      padding-top: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none;
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: rgb(0, 0, 0);
+      /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.4);
+      /* Black w/ opacity */
+      padding-top: 60px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+
+    div.container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      width: 100%;
+      background-color: #04AA6D;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+
+    /* The Close Button (x) */
+    .close {
+      position: absolute;
+      right: 25px;
+      top: 0;
+      color: #000;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: red;
+      cursor: pointer;
+    }
+
+    /* Add Zoom Animation */
+    .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+      from {
+        -webkit-transform: scale(0)
+      }
+
+      to {
+        -webkit-transform: scale(1)
+      }
+    }
+
+    @keyframes animatezoom {
+      from {
+        transform: scale(0)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+
+    /* Change styles for span and cancel button on extra small screens */
+    @media screen and (max-width: 300px) {
+      span.psw {
+        display: block;
+        float: none;
+      }
+
+      .cancelbtn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="w3-light-grey">
+
+  <!-- Top container -->
+ 
+
+
+
+  <!-- Overlay effect when opening sidebar on small screens -->
+  
+  <!-- !PAGE CONTENT! -->
+  <div class="w3-main" >
+
+    <!-- Header -->
+    <header class="w3-container" style="padding-top:22px">
+      <h5><b><i class="fa fa-dashboard"></i>Dashboard yange</b></h5>
+    </header>
+    <div class="w3-row-padding w3-margin-bottom">
+      <div class="w3-quarter">
+        <div style="height: 300px;" class="w3-container w3-black w3-padding-16">
+          <div class="w3-left"><img
+            src="https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3137463613209149&height=200&width=200&ext=1649316167&hash=AeQsLH5A0k5q-Lc_Wro"
+            class="w3-circle w3-margin-right" style="width:150px"></div>
+          <div class="w3-clear"></div>
+          <h4>Urakaza neza Munaziri</h4>
+        </div>
+      </div>
+     
+
+
+      <div class="w3-quarter">
+        <div class="w3-container w3-dark-grey w3-padding-16">
+          <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>99</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>views</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-dark-grey w3-padding-16">
+          <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>23</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>Shares / subscribes</h4>
+        </div>
+      </div>
+      <div class="w3-quarter">
+        <div class="w3-container w3-black w3-text-white w3-padding-16">
+          <div class="w3-left"><i class="fa fa-television w3-xxxlarge"></i></div>
+          <div class="w3-right">
+            <h3>50</h3>
+          </div>
+          <div class="w3-clear"></div>
+          <h4>watchtime</h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-panel">
+      <div class="w3-row-padding" style="margin:0 -16px">
+        <div style="width:100%" class="w3-third">
+          <div class="w3-twothird">
+            <h5>GURA WIBONERE VIEWS , SUBS NA WATCHTIME</h5>
+            <table class="w3-table w3-striped w3-white">
+              <tr>
+                <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+                <td style="cursor:pointer;" onclick="document.getElementById('id01').style.display='block'">Basic
+                  <b>5,000 RWF</b>
+                </td>
+                <td><i><a
+                      style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
+                      href=""><b>GURA</b></a></i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+                <td style="cursor:pointer;" onclick="document.getElementById('id02').style.display='block'">Moderate
+                  <b>10,0000 RWF</b>
+                </td>
+                <td><i><a
+                      style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
+                      href=""><b>GURA</b></a></i></td>
+              </tr>
+              <tr>
+                <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+                <td style="cursor:pointer;" onclick="document.getElementById('id03').style.display='block'">Classic
+                  <b>20,0000 RWF</b>
+                </td>
+                <td><i><a
+                      style="text-decoration: none; color: white; background-color: green; padding: 2px 2px 2px 2px;"
+                      href=""><b>GURA</b></a></i></td>
+              </tr>
+
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="id01" class="modal">
+
+        <div class="modal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+
+          </div>
+          <div class="container">
+
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
+            <a type="button" onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"><b>GURA</b></a>
+
+          </div>
+
+
+        </div>
+      </div>
+      <div id="id02" class="modal">
+
+        <div class="modal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+
+          </div>
+
+          <div class="container">
+
+          </div>
+
+          <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
+            <a type="button" onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"><b>GURA</b></a>
+
+          </div>
+        </div>
+      </div>
+      <div id="id03" class="modal">
+
+        <div class="modal-content animate">
+          <div class="imgcontainer">
+            <span onclick="document.getElementById('id03').style.display='none'" class="close"
+              title="Close Modal">&times;</span>
+
+          </div>
+
+          <div class="container">
+
+          </div>
+          <div class="container" style="background-color:#f1f1f1; color: aliceblue;">
+            <a type="button" onclick="document.getElementById('id01').style.display='none'"
+              class="cancelbtn"><b>GURA</b></a>
+
+          </div>
+
+
+        </div>
+      </div>
+      <hr>
+      <div class="w3-container">
+        <h5><b>izi form zikoreshwa ubwishyu bwanyu bwemewe</b></h5>
+        (shyira hano links zawe za videos ushaka ko zakoreshwa mukubona watchtime na views)
+        <div class="container">
+          <form action="/action_page.php">
+            <label for="lname">videoId</label>
+            <input type="text" id="lname" disabled name="videoID" placeholder="link iri muri format ya id">
+            <input type="submit" disabled value="tanga ibiri haruguru">
+          </form>
+          (shyira hano <b>Id</b> ya channel yawe na discription kugirango ubashe kubona subs wishyuriye  )
+          (iyi form  ikoreshwa rimwe gusa)
+          <form action="/action_page.php">
+            <label for="fname">channelURL</label>
+            <input type="text" id="fname" disabled name="channelURL" placeholder="link iri muri format ya id">
+            <label for="fname">vuga ibyo channel yawe muri make ibyo ikora</label>
+            <textarea style="height: 30vw; width: 100%;" type="text" id="fname" disabled name="discription" placeholder="iyi channel ikora ibikorwa byo......... "></textarea>
+
+            <input type="submit" disabled value="tanga ibiri haruguru">
+          </form>
+        </div>
+        <div>
+          <h5>video ziri gukorwaho</h5>
+          (<i>wemerewe videos 15 gusa</i>)
+          <ul style="list-style: none;">
+            <li>Coffee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+          </ul>
+        </div>
+
+      </div>
+      <br>
+   
+
+      <br>
+      <div class="w3-container w3-dark-grey w3-padding-32">
+        <div class="w3-row">
+          <div class="w3-container w3-third">
+            <h5 class="w3-bottombar w3-border-green">Abo turibo</h5>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Get the modal
+      var modal1 = document.getElementById('id01');
+      var modal2 = document.getElementById('id02');
+      var modal3 = document.getElementById('id03');
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function (event) {
+        if (event.target == modal1 || event.target == modal2 || event.target == modal3) {
+          modal1.style.display = "none";
+          modal2.style.display = "none";
+          modal3.style.display = "none";
+        }
+
+
+      }
+      // Get the Sidebar
+      var mySidebar = document.getElementById("mySidebar");
+
+      // Get the DIV with overlay effect
+      var overlayBg = document.getElementById("myOverlay");
+
+      // Toggle between showing and hiding the sidebar, and add overlay effect
+      function w3_open() {
+        if (mySidebar.style.display === 'block') {
+          mySidebar.style.display = 'none';
+          overlayBg.style.display = "none";
+        } else {
+          mySidebar.style.display = 'block';
+          overlayBg.style.display = "block";
+        }
+      }
+
+      // Close the sidebar with the close button
+      function w3_close() {
+        mySidebar.style.display = "none";
+        overlayBg.style.display = "none";
+      }
+    </script>
+
+</body>
+
+</html>
