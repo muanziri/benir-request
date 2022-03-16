@@ -2,9 +2,10 @@ const Express=require('express')
 const mongoose=require('mongoose');
 const passport=require('passport');
 const cookieSession=require('cookie-session')
+require('dotenv').config();
 
 
-const DB = 'mongodb+srv://munazirio:hello@sockets.uadmg.mongodb.net/benir-request?retryWrites=true&w=majority';
+const DB = process.env.MONGODBSEC;
 
 mongoose.connect(DB,{ useNewUrlParser:true,useUnifiedTopology:true})
   .then((results)=>{

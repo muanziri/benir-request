@@ -1,5 +1,6 @@
 const passport2=require('passport');
 const usersClients=require('../models/usersClients')
+require('dotenv').config();
 
 var GoogleStrategy2 = require( 'passport-google-oauth2' ).Strategy;
 passport2.serializeUser((usersClients,done)=>{
@@ -11,8 +12,8 @@ passport2.deserializeUser((id,done)=>{
   })
   
 })
-var GOOGLE_CLIENT_ID='856444356425-kmklcbakccse6h0hi7mau78n3uh2nrts.apps.googleusercontent.com';
-var GOOGLE_CLIENT_SECRET='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'
+var GOOGLE_CLIENT_ID=process.env.GOOGLESEC1
+var GOOGLE_CLIENT_SECRET=process.env.GOOGLESEC2
 passport2.use(new GoogleStrategy2({
     clientID:     GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,

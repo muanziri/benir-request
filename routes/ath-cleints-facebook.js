@@ -1,5 +1,6 @@
 const passport3=require('passport');
 const usersClients=require('../models/usersClients')
+require('dotenv').config();
 
 var FacebookStrategy = require( 'passport-facebook' ).Strategy;
 passport3.serializeUser((usersClients,done)=>{
@@ -11,8 +12,8 @@ passport3.deserializeUser((id,done)=>{
   })
   
 })
-var FACEBOOK_APP_ID='487049119534630';
-var FACEBOOK_APP_SECRET='7f4eab731731c48ba01f71bec3808871'
+var FACEBOOK_APP_ID=process.env.FACEBOOKSEC1;
+var FACEBOOK_APP_SECRET=process.env.FACEBOOKSEC2;
 passport3.use(new FacebookStrategy({
   clientID: FACEBOOK_APP_ID,
   clientSecret: FACEBOOK_APP_SECRET,
