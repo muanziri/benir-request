@@ -1,12 +1,13 @@
 const Express=require('express');
 const passport=require('passport')
+const bcrypt=require('bcrypt')
 const router=Express.Router();
 const userClient=require('../models/usersClients');
 const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
-const { profile } = require('./ath-cleints');
+const innitiate=require('./passport-local')
 
 
 require('./ath-cleints');
@@ -193,10 +194,26 @@ router.post('/updateWatchtime/:id', async (req,res)=>{
 
 
 router.get('/buyerLogin',(req,res)=>{
+
     res.render('buyerLogin')
 })
-router.post('/buyerLogin',(req,res)=>{
-    res.render('buyerLogin')
+router.post('/buyerLogin',async(req,res)=> {
+    
+    try {
+        const hashedPassword= await bcrypt.hash(req.body.password,10);
+        new buyerClient={
+          email:req.body.email,
+          phoneNumber:req.body.phone,
+          password: hashedPassword 
+        }
+      buyerClient.save().then((results)=>{
+        redirect('/buyer')
+      })
+    } catch (error) {
+        console.log(error)
+    }
+
+
 })
 
 module.exports=router;

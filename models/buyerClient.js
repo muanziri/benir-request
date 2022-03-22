@@ -2,17 +2,12 @@ const mongoose=require('mongoose');
 const schema=mongoose.Schema
 
 const UserSchema=new schema({
-    userName:{
-        type:String,
-        required:true
-    },
+  
     Email:{
         type:String,
     },
-    googleid:{
-        type:String,
-    },
-    Profilephoto:{
+   
+    password:{
         type:String,
         required:true
     },
