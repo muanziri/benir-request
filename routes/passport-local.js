@@ -1,23 +1,26 @@
-const buyerClient=require('../models/buyerClient')
 const bcrypt=require('bcrypt');
-const passport=require('passport')
 const passportLocal=require('passport-local').Strategy;
 
 
-const innitiate= ( passport )=>{
-    const authenticateUser= (email,password,done)=>{
-       buyerClient.findOne({Email:email}).then((results)=>{
-         const user=results;  
+const innitiate= ( passport ,getUserByEmail)=>{
+  const {passport}=require('passport')  
+    const authenticateUser= async (email,password,done)=>{
+      
+         const user=getUserByEmail(email);  
         if(user== null){
             return done(null,false,{massege:"no user with that email"})
         }
         try {
   
-          if(await bcrypt.compare(password), user.password)
+          if(await bcrypt.compare(password), user.password){
+            done(null,user)
+          }else{
+            return done(null,false,{message:"password incorrect"})
+          }
         } catch (error) {
-            
+            return done(error)
         }
-      })
+ 
      
     }
     passport.use(new passportLocal(

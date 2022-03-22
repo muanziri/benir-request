@@ -7,7 +7,11 @@ const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
-const innitiate=require('./passport-local')
+const innitiate=require('./passport-local');
+innitiate(passport, async email=>{
+    const emailer= await buyerClient.findOne({Email:email})
+    return emailer
+})
 
 
 require('./ath-cleints');
@@ -197,17 +201,23 @@ router.get('/buyerLogin',(req,res)=>{
 
     res.render('buyerLogin')
 })
-router.post('/buyerLogin',async(req,res)=> {
-    
+router.post('/buyerLogin',passport.authenticate('local',{
+       successRedirect:'/',
+       failureRedirect:'/buyerLogin',
+       failureFlash: true
+}))
+router.post('/buyerLogin1',async(req,res)=> {
+ 
+  
     try {
         const hashedPassword= await bcrypt.hash(req.body.password,10);
         new buyerClient={
-          email:req.body.email,
+          Email:req.body.email,
           phoneNumber:req.body.phone,
           password: hashedPassword 
         }
       buyerClient.save().then((results)=>{
-        redirect('/buyer')
+        redirect('/buyerLogin1')
       })
     } catch (error) {
         console.log(error)
