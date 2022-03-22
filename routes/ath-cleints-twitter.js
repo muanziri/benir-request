@@ -11,6 +11,7 @@ passport2.deserializeUser((id,done)=>{
   })
   
 })
+
 var GOOGLE_CLIENT_ID='856444356425-kmklcbakccse6h0hi7mau78n3uh2nrts.apps.googleusercontent.com';
 var GOOGLE_CLIENT_SECRET='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'
 passport2.use(new GoogleStrategy2({

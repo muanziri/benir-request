@@ -36,8 +36,22 @@ app.use(passport.session());
  app.use('/public',Express.static(__dirname+'/public'))
  app.set('view engine','ejs');
 
-
+ 
 
  app.use('/',require('./routes/severs-cleints'));
  app.use('/goods',require('./routes/index'));
- 
+ app.get('/watsapp',(req,res)=>{
+  const accountSid = 'AC7040d7240cdbf75fe34c4b1d1e80bdf5'; 
+  const authToken = '69dc56bc814431ab9f6f60487c1ded55'; 
+  const client = require('twilio')(accountSid, authToken); 
+   
+  client.messages 
+        .create({ 
+          body: `<h1>help</h1>`, 
+           from: 'whatsapp:+14155238886',       
+           to: 'whatsapp:+256787861513', 
+         }) 
+        .then(message => console.log(message.sid)) 
+        .done();
+ })
+

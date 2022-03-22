@@ -8,9 +8,7 @@ const router=express.Router();
 router.get('/',(req,res)=>{
     res.render('index');
 })
-router.get('/buyer',(req,res)=>{
-    res.render('buyer');
-})
+
 router.post('/views',(req,res)=>{
    const {Videoid,channelId}=req.body;
   new views({

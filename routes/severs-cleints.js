@@ -2,13 +2,16 @@ const Express=require('express');
 const passport=require('passport')
 const router=Express.Router();
 const userClient=require('../models/usersClients');
+const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
-const subscribe=require('../models/commodities/subscribe')
+const subscribe=require('../models/commodities/subscribe');
+const { profile } = require('./ath-cleints');
 
 
 require('./ath-cleints');
 require('./ath-cleints-facebook');
+
 
 
 
@@ -32,16 +35,42 @@ router.get( '/auth/google/callback',
         successRedirect: '/auth/google/success',
         failureRedirect: '/auth/google/failure'
 }));
+router.get('/auth/second/google',
+  passport.authenticate('google-alt', { scope:
+      [ 'email', 'profile' ] }
+));
+router.get( '/second/google/callback',
+    passport.authenticate( 'google-alt', {
+        successRedirect: '/auth/second/google/success',
+        failureRedirect: '/auth/second/google/failure'
+}));
 
 const check=(req,res,next)=>{
     if (!req.user) {
         
         res.redirect('/login')
-        console.log(req.user)
+
         
     } else {
         next(); 
     }
+}
+
+const check2=(req,res,next)=>{
+        
+    buyerClient.find().then((results)=>{
+         const buyer12=results.includes()
+        if (!req.user && !buyer12) {
+        
+            res.redirect('/auth/second/google')
+        
+            
+        } else {
+            next();
+          
+        }
+  })  
+  
 }
 
 
@@ -50,14 +79,29 @@ router.get('/auth/google/success',(req,res)=>{
     res.redirect('/seller');
 
 })
+
 router.get('/auth/google/failure',(req,res)=>{
     res.redirect('/login');
 
 })
+router.get('/auth/second/google/success',(req,res)=>{
+    console.log(profile);
+    res.redirect('/buyer');
 
+})
+router.get('/auth/second/google/failure',(req,res)=>{
+    res.redirect('/buyer');
+
+})
+router.get('/buyer',check2,(req,res)=>{
+    let user1= req.user.googleid;
+    buyerClient.findOne({googleid:user1}).then((results)=>{
+        res.render('buyer',{buyerClient:results})
+    })
+})
 
 router.get('/',(req,res)=>{
-
+      
     res.render('landingPage');
 
 })
@@ -148,7 +192,11 @@ router.post('/updateWatchtime/:id', async (req,res)=>{
 })
 
 
-
-
+router.get('/buyerLogin',(req,res)=>{
+    res.render('buyerLogin')
+})
+router.post('/buyerLogin',(req,res)=>{
+    res.render('buyerLogin')
+})
 
 module.exports=router;
