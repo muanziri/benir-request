@@ -1,5 +1,6 @@
 const Express=require('express')
 const mongoose=require('mongoose');
+const Flash=require('express-flash');
 const passport=require('passport');
 const cookieSession=require('cookie-session')
 require('dotenv').config();
@@ -41,18 +42,5 @@ app.use(passport.session());
 
  app.use('/',require('./routes/severs-cleints'));
  app.use('/goods',require('./routes/index'));
- app.get('/watsapp',(req,res)=>{
-  const accountSid = ''; 
-  const authToken = ''; 
-  const client = require('twilio')(accountSid, authToken); 
-   
-  client.messages 
-        .create({ 
-          body: `<h1>help</h1>`, 
-           from: 'whatsapp:+14155238886',       
-           to: 'whatsapp:+256787861513', 
-         }) 
-        .then(message => console.log(message.sid)) 
-        .done();
- })
+ 
 

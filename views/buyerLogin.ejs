@@ -210,9 +210,12 @@ hr {
 
 
     <div class="container">
-        <form action="/action_page.php">
+        
             <div class="row">
                 <h2 style="text-align:center; color:white;">SIGN-UP or LOGIN</h2>
+                <p style="text-align:center; color:white;"><% if (messages.error) { %>
+                 <%=messages.error%> 
+                <% } %></p>
                 <div class="vl">
                     <span class="vl-innertext">or</span>
                 </div>
@@ -229,19 +232,19 @@ hr {
                     <div class="hide-md-lg">
                         <p>Or login</p>
                     </div>
-                    <form action="">
-                        <input type="text" name="Your email" placeholder="Your email" required>
+                    <form action="/buyerLogin" method="post">
+                        <input type="text" name="email" placeholder="Your email" required>
                         <input type="password" name="password" placeholder="Password" required>
                         <input type="submit" value="Login">
                     </form>
                 </div>
 
             </div>
-        </form>
+        
     </div>
     <div style="color: white; background-color: black;" id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-        <form class="modal-content" action="/action_page.php">
+        <form class="modal-content" action="/buyerLogin1" method="post">
           <div class="container2">
             <center><h1>Sign Up</h1></center>
             <p>Please fill in this form to create an account.</p>
@@ -251,10 +254,10 @@ hr {
       
            
             <label for="psw-repeat"><b>Phone Number</b></label>
-            <input type="text" placeholder="+2507...." name="Phone" required>
+            <input type="text" placeholder="+2507...." name="phone" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
       
       
             <label for="psw-repeat"><b>Repeat Password</b></label>

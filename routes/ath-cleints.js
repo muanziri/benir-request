@@ -1,6 +1,4 @@
 const passport2=require('passport');
-const passport4=require('passport');
-const buyerClient=require('../models/buyerClient')
 
 const usersClients=require('../models/usersClients')
 require('dotenv').config();
@@ -22,12 +20,7 @@ passport2.deserializeUser((id,done)=>{
   
 })
 
-passport4.serializeUser((user2 ,done)=>{
- 
-  done(null,user2.id);
-  
 
-})
 
 
 

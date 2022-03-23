@@ -1,21 +1,18 @@
 const Express=require('express');
 const passport=require('passport')
 const bcrypt=require('bcrypt')
+
 const router=Express.Router();
 const userClient=require('../models/usersClients');
 const buyerClient=require('../models/buyerClient')
 const Views=require('../models/commodities/views')
 const watchtime=require('../models/commodities/watchtime');
 const subscribe=require('../models/commodities/subscribe');
-const innitiate=require('./passport-local');
-innitiate(passport, async email=>{
-    const emailer= await buyerClient.findOne({Email:email})
-    return emailer
-})
 
 
 require('./ath-cleints');
 require('./ath-cleints-facebook');
+require('./passport-local');
 
 
 
@@ -40,15 +37,8 @@ router.get( '/auth/google/callback',
         successRedirect: '/auth/google/success',
         failureRedirect: '/auth/google/failure'
 }));
-router.get('/auth/second/google',
-  passport.authenticate('google-alt', { scope:
-      [ 'email', 'profile' ] }
-));
-router.get( '/second/google/callback',
-    passport.authenticate( 'google-alt', {
-        successRedirect: '/auth/second/google/success',
-        failureRedirect: '/auth/second/google/failure'
-}));
+
+
 
 const check=(req,res,next)=>{
     if (!req.user) {
@@ -89,20 +79,9 @@ router.get('/auth/google/failure',(req,res)=>{
     res.redirect('/login');
 
 })
-router.get('/auth/second/google/success',(req,res)=>{
-    console.log(profile);
-    res.redirect('/buyer');
-
-})
-router.get('/auth/second/google/failure',(req,res)=>{
-    res.redirect('/buyer');
-
-})
-router.get('/buyer',check2,(req,res)=>{
-    let user1= req.user.googleid;
-    buyerClient.findOne({googleid:user1}).then((results)=>{
-        res.render('buyer',{buyerClient:results})
-    })
+router.get('/buyer',(req,res)=>{
+    console.log(req.user)
+    res.render('buyer')
 })
 
 router.get('/',(req,res)=>{
@@ -202,7 +181,7 @@ router.get('/buyerLogin',(req,res)=>{
     res.render('buyerLogin')
 })
 router.post('/buyerLogin',passport.authenticate('local',{
-       successRedirect:'/',
+       successRedirect:'/buyer',
        failureRedirect:'/buyerLogin',
        failureFlash: true
 }))
@@ -211,13 +190,12 @@ router.post('/buyerLogin1',async(req,res)=> {
   
     try {
         const hashedPassword= await bcrypt.hash(req.body.password,10);
-        new buyerClient={
+        new buyerClient({
           Email:req.body.email,
           phoneNumber:req.body.phone,
           password: hashedPassword 
-        }
-      buyerClient.save().then((results)=>{
-        redirect('/buyerLogin1')
+        }).save().then((results)=>{
+        res.redirect('/buyerLogin')
       })
     } catch (error) {
         console.log(error)
